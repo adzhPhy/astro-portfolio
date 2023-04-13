@@ -1,10 +1,27 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
-
 import sanity from "astro-sanity";
+import vercel from "@astrojs/vercel/static";
+import { loadEnv } from "vite";
+import image from "@astrojs/image";
+
+const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), sanity()]
+  // output: "server",
+  // adapter: vercel(),
+  integrations: [
+    tailwind(),
+    react(),
+    sanity({
+      projectId: SANITY_ID,
+      dataset: "production",
+      apiVersion: "2022-02-01",
+      useCdn: true,
+      token: SANITY_TOKEN,
+    }),
+    image(),
+  ],
 });
