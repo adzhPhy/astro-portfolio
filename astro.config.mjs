@@ -3,8 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import sanity from "astro-sanity";
 import vercel from "@astrojs/vercel/static";
-import { loadEnv } from "vite";
 import image from "@astrojs/image";
+import { loadEnv } from "vite";
 
 const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 
