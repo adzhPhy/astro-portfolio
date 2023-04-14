@@ -3,14 +3,14 @@ import tailwind from "@astrojs/tailwind";
 import sanity from "astro-sanity";
 import image from "@astrojs/image";
 import { loadEnv } from "vite";
-import vercelStatic from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 
 const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
-  adapter: vercelStatic(),
+  output: "server",
+  adapter: vercel(),
   integrations: [
     tailwind(),
     image(),
