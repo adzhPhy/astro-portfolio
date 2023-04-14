@@ -17,8 +17,7 @@
   scroll-behavior: smooth;
 }
 
-@media (max-width: 800px) {
-  html,
+@media (min-width: 320px) {
   body {
     overflow-x: hidden;
   }
@@ -162,3 +161,7 @@ body {
 }
 
 /* NAVBAR DROPDOWN MENU */
+
+.active-nav-link {
+  background-color: var(--primary);
+}

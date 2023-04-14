@@ -4,14 +4,16 @@ import { Gamepad, Gauge } from "lucide-react";
 import { GiGalaxy } from "react-icons/gi";
 ---
 
-<nav class="w-3/4 max-w-7xl border-y-2 rounded-xl border-th-tertiary min-h-fit">
+<nav
+  class="fixed z-50 w-3/4 max-w-7xl border-y-2 rounded-xl border-th-tertiary min-h-fit bg-th-background opacity-90"
+>
   <div
-    class="text-th-tertiary font-mono text-lg flex flex-row justify-between items-center mx-auto px-10 py-2 gap-3"
+    class="text-th-tertiary font-mono text-lg flex flex-row lg:justify-between justify-center items-center mx-auto px-10 py-2 gap-3"
   >
     <div
-      class="m-1 p-2 flex flex-row flex-wrap justify-center items-center gap-3"
+      class="xxs:max-lg:hidden m-1 p-2 flex flex-row flex-wrap justify-center items-center gap-3"
     >
-      <a href="/">
+      <a href="#">
         <img
           src="/images/adzhalogo.png"
           alt="Portfolio Logo"
@@ -122,11 +124,25 @@ import { GiGalaxy } from "react-icons/gi";
           </ul>
         </div>
         <!-- end dropdown menu -->
-        <ul class="flex gap-4 m-4 font-semibold flex-wrap">
-          <li>Home</li>
-          <li>About</li>
-          <li>Work</li>
-          <li>Skills</li>
+        <ul class="nav-list flex gap-4 m-4 font-semibold flex-wrap">
+          <li>
+            <a
+              class="rounded-lg p-2 hover:underline underline-offset-4"
+              href="#home">Home</a
+            >
+          </li>
+          <li>
+            <a class="hover:underline underline-offset-4" href="#about">About</a
+            >
+          </li>
+          <li>
+            <a class="hover:underline underline-offset-4" href="#work">Work</a>
+          </li>
+          <li>
+            <a class="hover:underline underline-offset-4" href="#skills"
+              >Skills</a
+            >
+          </li>
         </ul>
       </div>
     </div>

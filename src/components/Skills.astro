@@ -11,18 +11,18 @@ export interface SkillProps {
 const skills = await getSanityData("skills");
 ---
 
-<Section>
+<Section id="skills">
   <div
-    id="skill"
+    
     class="hide-content w-full flex-col flex justify-center items-center"
   >
     <h2 class="text-4xl font-extrabold text-th-tertiary text-left mt-8 mb-4">
       Skills
     </h2>
     <div
-      class="w-4/5 m-10 flex flex-col w-full h-full transition-all overflow-x-auto"
+      class="w-4/5 m-10 flex flex-col w-full h-full transition-all"
     >
-      <div class="flex justify-center items-center flex-1 gap-4">
+      <div class="grid grid-cols-2 md:flex justify-center items-center flex-1 gap-4">
         {
           skills.map((skill: SkillProps) => (
             <div class="skills-icon-animation flex justify-between items-center flex-col text-center m-2">

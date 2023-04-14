@@ -27,16 +27,15 @@ const workTags: string[] = [
 const filterWorks = works;
 ---
 
-<Section>
+<Section id="work">
   <div
-    id="work"
     class="hide-content w-full flex-1 flex-col flex justify-center items-center border-b border-th-tertiary"
   >
     <h2 class="text-4xl font-extrabold text-th-tertiary text-left mt-8 mb-4">
       Projects
     </h2>
     <div
-      class="flex flex-row justify-start items-center flex-wrap mx-16 mt-0 mb-8 gap-4"
+      class="flex flex-row flex-auto justify-center md:justify-start items-center flex-wrap mx-16 mt-0 mb-8 gap-4"
     >
       {
         workTags.map((tag: string) => (
@@ -47,7 +46,7 @@ const filterWorks = works;
       }
     </div>
     <div
-      class="work-cards flex flex-row flex-wrap justify-center items-center mb-24 transition-all"
+      class="work-cards grid grid-cols-1 md:flex md:flex-row md:flex-wrap justify-center items-center mb-24 transition-all"
     >
       {
         filterWorks?.map((work: WorkProps) => (
@@ -95,15 +94,15 @@ const filterWorks = works;
                 </p>
               </div>
             </div>
-            <div class="flex flex-row justify-evenly items-start gap-11">
+            <div class="flex flex-row justify-evenly items-start gap-10">
               {work.images.map((image) => (
                 <div class="flex flex-wrap justify-center items-center w-6 h-6 rounded-full shadow-lg shadow-th-primary">
                   <Image
                     src={urlFor(image).url()}
                     alt={image.alt}
                     format="png"
-                    width={64}
-                    height={64}
+                    width={52}
+                    height={52}
                     style={{
                       background: "white",
                       borderRadius: "50%",
