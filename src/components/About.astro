@@ -1,5 +1,67 @@
 ---
+import { getSanityData, urlFor } from "../scripts/client";
 import Section from "./ui/Section.astro";
+import { Image } from "@astrojs/image/components";
+interface AboutProps {
+  title: string;
+  description: string;
+  imgUrl: string;
+}
+const abouts = await getSanityData("abouts");
+console.log(abouts);
 ---
 
-<Section />
+<Section>
+  <div
+    id="about"
+    class="main static w-full min-w-fit h-full flex flex-col justify-center items-center"
+  >
+    <div
+      class="max-w-fit border border-th-tertiary flex flex-wrap align-center place-items-center mt-4 xxs:gap-4"
+    >
+      <h4
+        class="font-serif text-5xl font-extrabold justify-self text-center text-th-primary italic"
+      >
+        <span class="text-th-tertiary text-5xl bold">Audentes</span>
+        <br />
+        Fortuna iuvat
+      </h4>
+      <h4
+        class="font-serif text-5xl font-extrabold justify-self text-center text-th-primary italic"
+      >
+        Luck favours
+        <br />
+        <span class="text-th-tertiary text-5xl bold">the Bold</span>
+      </h4>
+    </div>
+    <div class="flex justify-center items-start flex-wrap mt-8 mb-12 pb-6">
+      {
+        abouts?.map((about: AboutProps) => (
+          <div class="w-64 flex justify-start rounded-md items-start flex-col m-4 hover:rounded-lg shadow-lg hover:shadow-th-tertiary">
+            <Image
+              src={urlFor(about.imgUrl).url()}
+              alt={about.title}
+              width={256}
+              height={256}
+              style={{
+                width: "auto",
+                objectFit: "cover",
+                background: "white",
+                borderTop: "15px",
+                borderRadius: "8px",
+              }}
+            />
+            <div class="m-2 bg-th-background font-mono">
+              <h2 class="text-lg font-extrabold text-th-tertiary text-left mt-2">
+                {about.title}
+              </h2>
+              <p class="text-md font-semibold text-left text-th-tertiary leading-6 mt-2.5">
+                {about.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>

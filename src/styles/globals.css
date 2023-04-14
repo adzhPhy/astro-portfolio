@@ -1,10 +1,20 @@
-body {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+:root {
   --background: #001437;
   --primary: #7898fb;
   --secondary: #5ce5d5;
   --tertiary: #c3f85f;
-  background: url(/images/background.png) repeat var(--background);
-  overflow: scroll;
+  transition: all;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 800px) {
@@ -14,35 +24,32 @@ body {
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  scroll-behavior: smooth;
+body {
+  background: url(/images/background.png) repeat var(--background);
+  overflow: scroll;
 }
 
 /* flashy-fog */
 [data-theme="dark1"] {
-  --background: #08053d;
-  --primary: #a6f3ef;
-  --secondary: #440bd4;
-  --tertiary: #ff4d82;
+  --dark1-bg: #08053d;
+  --dark1-prim: #a6f3ef;
+  --dark1-sec: #440bd4;
+  --dark1-th: #ff4d82;
 }
-
-/* purple-portrait */
+/* purple-portrait  */
 [data-theme="dark2"] {
-  --background: #0f0827;
-  --primary: #613f81;
-  --secondary: #c574ee;
-  --tertiary: #41b3f0;
+  --dark2-bg: #0f0827;
+  --dark2-prim: #613f81;
+  --dark2-sec: #c574ee;
+  --dark2-th: #41b3f0;
 }
 
 /* radiant-zoas */
 [data-theme="light"] {
-  --background: #001437;
-  --primary: #7898fb;
-  --secondary: #5ce5d5;
-  --tertiary: #c3f85f;
+  --light-bg: #001437;
+  --light-prim: #7898fb;
+  --light-sec: #5ce5d5;
+  --light-th: #c3f85f;
 }
 
 .hover-animation:hover {
@@ -68,4 +75,48 @@ body {
   .hidden {
     transition: none;
   }
+}
+
+.select-clicked {
+  border: 2px solid var(--tertiary);
+  box-shadow: 0 0 0.8em var(--tertiary);
+}
+
+.menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  border: 1px var(--tertiary) solid;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  transition: 0.2s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0.2em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.menu li svg {
+  margin: 0.2em;
+}
+
+.menu li:hover {
+  background: var(--primary);
+}
+
+.menu-open {
+  display: block;
+  opacity: 1;
+  pointer-events: all;
 }
