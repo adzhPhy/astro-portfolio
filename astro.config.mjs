@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import react from "@astrojs/react";
 import sanity from "astro-sanity";
 import image from "@astrojs/image";
 import { loadEnv } from "vite";
@@ -15,7 +14,6 @@ export default defineConfig({
   integrations: [
     tailwind(),
     image(),
-    react(),
     sanity({
       projectId: SANITY_ID,
       dataset: "production",
