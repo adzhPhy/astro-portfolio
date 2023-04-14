@@ -1,9 +1,10 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
+import react from "@astrojs/react";
 import sanity from "astro-sanity";
-import vercel from "@astrojs/vercel/static";
 import image from "@astrojs/image";
 import { loadEnv } from "vite";
+import vercel from "@astrojs/vercel/static";
 
 const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 
@@ -14,6 +15,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     image(),
+    react(),
     sanity({
       projectId: SANITY_ID,
       dataset: "production",
