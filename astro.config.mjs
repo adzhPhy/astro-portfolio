@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import sanity from "astro-sanity";
 import image from "@astrojs/image";
 import { loadEnv } from "vite";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/static";
 
 const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 
