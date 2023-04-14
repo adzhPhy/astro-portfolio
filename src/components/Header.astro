@@ -1,4 +1,5 @@
 ---
+export const prerender = true;
 import { Image } from "@astrojs/image/components";
 import cvIcon from "../../public/images/cvicon.png";
 import headshot from "../../public/images/profilepic.jpg";
@@ -11,11 +12,11 @@ const circleImages = [react, tailwind, django];
 
 <Section>
   <div
-    class="min-w-fit w-full xxs:min-h-fit flex flex-col md:flex-row m-6 p-6 justify-center items-center gap-4"
+    class="hide-content min-w-fit w-full xxs:min-h-fit flex flex-col md:flex-row m-6 p-6 justify-center items-center gap-4"
   >
     <!-- left cards -->
     <div
-      class="hide-content min-w-fit flex flex-col justify-center items-center md:justify-end md:items-end gap-3"
+      class="min-w-fit flex flex-col justify-center items-center md:justify-end md:items-end gap-3"
     >
       <div
         class="min-w-fit w-full flex flex-row flex-wrap justify-center md:justify-end items-center gap-3 pt-1"

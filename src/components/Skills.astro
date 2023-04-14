@@ -1,6 +1,47 @@
 ---
+import { getSanityData, urlFor } from "../scripts/client";
+import { Image } from "@astrojs/image/components";
 import Section from "./ui/Section.astro";
+export interface SkillProps {
+  name: string;
+  BgColor: string | null;
+  icon: string;
+}
 
+const skills = await getSanityData("skills");
 ---
 
-<Section />
+<Section>
+  <div
+    id="skill"
+    class="hide-content w-full flex-col flex justify-center items-center"
+  >
+    <h2 class="text-4xl font-extrabold text-th-tertiary text-left mt-8 mb-4">
+      Skills
+    </h2>
+    <div
+      class="w-4/5 m-10 flex flex-col w-full h-full transition-all overflow-x-auto"
+    >
+      <div class="flex justify-center items-center flex-1 gap-4">
+        {
+          skills.map((skill: SkillProps) => (
+            <div class="skills-icon-animation flex justify-between items-center flex-col text-center m-2">
+              <div class="flex flex-col justify-center items-center w-28 h-28 rounded-full shadow-lg hover:shadow-lg hover:shadow-th-tertiary bg-gradient-to-r from-th-primary to-th-secondary">
+                <Image
+                  src={urlFor(skill.icon).url()}
+                  format="png"
+                  alt={skill.name}
+                  width={56}
+                  height={56}
+                />
+              </div>
+              <p class="text-lg font-mono font-extrabold text-center text-th-tertiary mt-2 leading-6 ">
+                {skill.name}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Section>

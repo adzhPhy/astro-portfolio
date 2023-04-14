@@ -1,14 +1,14 @@
 ---
+export const prerender = true;
 import { getSanityData, urlFor } from "../scripts/client";
 import Section from "./ui/Section.astro";
 import { Image } from "@astrojs/image/components";
+const abouts = await getSanityData("abouts");
 interface AboutProps {
   title: string;
   description: string;
   imgUrl: string;
 }
-const abouts = await getSanityData("abouts");
-console.log(abouts);
 ---
 
 <Section>
@@ -17,7 +17,7 @@ console.log(abouts);
     class="main static w-full min-w-fit h-full flex flex-col justify-center items-center"
   >
     <div
-      class="max-w-fit border border-th-tertiary flex flex-wrap align-center place-items-center mt-4 xxs:gap-4"
+      class="max-w-fit flex flex-col md:flex-row flex-wrap align-center place-items-center mt-4 xxs:gap-4"
     >
       <h4
         class="font-serif text-5xl font-extrabold justify-self text-center text-th-primary italic"
@@ -34,13 +34,16 @@ console.log(abouts);
         <span class="text-th-tertiary text-5xl bold">the Bold</span>
       </h4>
     </div>
-    <div class="flex justify-center items-start flex-wrap mt-8 mb-12 pb-6">
+    <div
+      class="hide-content flex justify-center items-start flex-wrap mt-8 mb-12 pb-6"
+    >
       {
         abouts?.map((about: AboutProps) => (
-          <div class="w-64 flex justify-start rounded-md items-start flex-col m-4 hover:rounded-lg shadow-lg hover:shadow-th-tertiary">
+          <div class="hover-animation-card w-64 flex justify-start rounded-md items-start flex-col m-4 hover:rounded-lg shadow-lg hover:shadow-th-tertiary">
             <Image
               src={urlFor(about.imgUrl).url()}
               alt={about.title}
+              format="png"
               width={256}
               height={256}
               style={{
