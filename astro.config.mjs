@@ -10,9 +10,12 @@ const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 // https://astro.build/config
 export default defineConfig({
   output: "server",
+  adapter: vercel(),
   integrations: [
     tailwind(),
-    image(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
     sanity({
       projectId: SANITY_ID,
       dataset: "production",
@@ -21,5 +24,4 @@ export default defineConfig({
       token: SANITY_TOKEN,
     }),
   ],
-  adapter: vercel({ includeFiles: ["/public/images/*"] }),
 });
