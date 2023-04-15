@@ -21,5 +21,5 @@ export default defineConfig({
       token: SANITY_TOKEN,
     }),
   ],
-  adapter: vercel(),
+  adapter: vercel({ includeFiles: ["./public/images/*"] }),
 });
