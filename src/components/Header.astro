@@ -1,11 +1,11 @@
 ---
+import Section from "./ui/Section.astro";
 import { Image } from "@astrojs/image/components";
 import cvIcon from "../../public/images/cvicon.png";
 import headshot from "../../public/images/profilepic.jpg";
 import react from "../../public/images/react.png";
 import tailwind from "../../public/images/tailwind.png";
 import django from "../../public/images/django.png";
-import Section from "./ui/Section.astro";
 const circleImages = [react, tailwind, django];
 ---
 
@@ -69,6 +69,7 @@ const circleImages = [react, tailwind, django];
               <Image
                 src={image}
                 alt={`${image}`}
+                format="png"
                 width={64}
                 height={64}
                 style={{ borderRadius: "50%" }}
@@ -83,6 +84,7 @@ const circleImages = [react, tailwind, django];
       <Image
         src={headshot}
         width={350}
+        format="jpg"
         height={550}
         alt="My Headshot"
         class="p-2"

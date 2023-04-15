@@ -10,7 +10,6 @@ const { SANITY_ID, SANITY_TOKEN } = loadEnv(import.meta.env, process.cwd(), "");
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: vercel(),
   integrations: [
     tailwind(),
     image(),
@@ -22,4 +21,5 @@ export default defineConfig({
       token: SANITY_TOKEN,
     }),
   ],
+  adapter: vercel(),
 });
