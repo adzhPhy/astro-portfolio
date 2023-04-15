@@ -16,14 +16,11 @@ import Skills from "../components/Skills.astro";
     <title>Welcome to my Portfolio!</title>
   </head>
   <body class="w-full min-h-screen flex flex-col justify-start items-center">
-    <Navbar client:load />
-    <Header client:load />
-    <About client:load />
-    <Work client:load />
-    <Skills client:load />
+    <Navbar />
+    <Header />
+    <About />
+    <Work />
+    <Skills />
     <script src="../scripts/scroll.js"></script>
-    <script src="../scripts/navbar/dropdown.js"></script>
-    <script src="../scripts/navbar/links.js"></script>
-    <script src="../scripts/works/filter.js"></script>
   </body>
 </html>

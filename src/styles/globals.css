@@ -145,6 +145,8 @@ body {
   margin: 0.3em 0;
   border-radius: 0.5em;
   cursor: pointer;
+  color: rgb(234, 230, 230);
+  background-color: #363535;
 }
 
 .menu li svg {
